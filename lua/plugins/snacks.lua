@@ -1,13 +1,16 @@
 return {
 	"folke/snacks.nvim",
-	dependencies = { {
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	dependencies = {
+		{
+			"nvim-telescope/telescope.nvim",
+			lazy = false,
+			dependencies = {
+				{ "nvim-lua/plenary.nvim", lazy = false },
+				{ "nvim-telescope/telescope-fzf-native.nvim", lazy = false, build = "make" },
+			},
+			"folke/persistence.nvim",
 		},
-		"folke/persistence.nvim"
-	}, },
+	},
 	priority = 1000,
 	lazy = false,
 	---@type snacks.Config
@@ -22,11 +25,7 @@ return {
 			size = 2 * 1024 * 1024, -- 2MB
 		},
 		bufdelete = {},
-		dashboard = {
-
-		},
-		indent = { enabled = true,
-
-		},
+		dashboard = {},
+		indent = { enabled = true },
 	},
 }

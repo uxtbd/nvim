@@ -14,7 +14,7 @@ return {
 				pip = {
 					upgrade_pip = true,
 				},
-			}
+			},
 		},
 		"neovim/nvim-lspconfig",
 	},
