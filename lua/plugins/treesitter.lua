@@ -4,13 +4,36 @@ return {
 	dependencies = {}, -- tree-sitter CLI must be installed system-wide
 	config = function()
 		require("tree-sitter-manager").setup({
-			ensure_installed = { "c", "cpp", "asm", "arduino", "rust", "lua", "toml", "markdown", "markdown_inline", "kitty" }, -- list of parsers to install at the start of a neovim session
-			border = "rounded",                                                                            -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
-			auto_install = true,                                                                           -- if enabled, install missing parsers when editing a new file
-			highlight = true,                                                                              -- treesitter highlighting is enabled by default
-			languages = {},                                                                                -- override or add new parser sources
+			ensure_installed = {
+				"c",
+				"cpp",
+				"asm",
+				"nasm",
+				"arduino",
+				"make",
+				"rust",
+				"lua",
+				"toml",
+				"markdown",
+				"markdown_inline",
+				"kitty",
+				"ecma",
+				"javascript",
+				"typescript",
+				"jsx",
+				"tsx",
+				"html",
+				"html_tags",
+				"css",
+				"scss",
+				"python",
+			}, -- list of parsers to install at the start of a neovim session
+			border = nil, -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
+			auto_install = true, -- if enabled, install missing parsers when editing a new file
+			highlight = true, -- treesitter highlighting is enabled by default
+			languages = {}, -- override or add new parser sources
 			parser_dir = vim.fn.stdpath("data") .. "/site/parser",
 			query_dir = vim.fn.stdpath("data") .. "/site/queries",
 		})
-	end
+	end,
 }
