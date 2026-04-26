@@ -6,6 +6,7 @@ return {
 		"saghen/blink.lib",
 		{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
 	},
+	version = "1.*",
 	build = "cargo build --release",
 
 	---@module "blink.cmp"
@@ -21,9 +22,18 @@ return {
 		completion = { documentation = { auto_show = true } },
 
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "omni" },
+			default = { "lsp", "path", "snippets", "buffer", "omni", "cmdline" },
 		},
-		fuzzy = { implementation = "rust" },
+		fuzzy = {
+			implementation = "rust",
+			sorts = {
+				"exact",
+				"score",
+				"sort_text",
+				"label",
+				"kind"
+			}
+		},
 	},
 	opts_extend = { "sources.default" },
 }
