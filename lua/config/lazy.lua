@@ -1,19 +1,19 @@
 -- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+local lazypath = vim.fn.stdpath ("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat (lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	local out = vim.fn.system ({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
+		vim.api.nvim_echo ({
 			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
 			{ out, "WarningMsg" },
 			{ "\nPress any key to exit..." },
 		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
+		vim.fn.getchar ()
+		os.exit (1)
 	end
 end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend (lazypath)
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
@@ -24,14 +24,14 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Setup lazy.nvim
-require("lazy").setup({
+require ("lazy").setup ({
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
 	},
 	pkg = {
 		enabled = true,
-		cache = vim.fn.stdpath("state") .. "/lazy/pkg-cache.lua",
+		cache = vim.fn.stdpath ("state") .. "/lazy/pkg-cache.lua",
 		sources = {
 			"lazy",
 			"rockspec", -- will only be used when rocks.enabled is true
@@ -40,7 +40,7 @@ require("lazy").setup({
 	},
 	rocks = {
 		enabled = true,
-		root = vim.fn.stdpath("data") .. "/lazy-rocks",
+		root = vim.fn.stdpath ("data") .. "/lazy-rocks",
 		server = "https://lumen-oss.github.io/rocks-binaries/",
 		hererocks = false,
 	},
@@ -66,7 +66,7 @@ require("lazy").setup({
 	},
 	readme = {
 		enabled = true,
-		root = vim.fn.stdpath("state") .. "/lazy/readme",
+		root = vim.fn.stdpath ("state") .. "/lazy/readme",
 		files = { "README.md", "lua/**/README.md" },
 		-- only generate markdown helptags for plugins that don't have docs
 		skip_if_doc_exists = true,
@@ -75,5 +75,5 @@ require("lazy").setup({
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "teide" } },
 })
-vim.cmd([[colorscheme teide]])
+vim.cmd ([[colorscheme teide]])
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

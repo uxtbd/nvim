@@ -3,7 +3,7 @@ indent_type = "Tabs"
 quote_style = "ForceDouble"
 call_parentheses = "Always"
 space_after_function_names = "Always"
-block_newline_gaps = "Always"
+block_newline_gaps = "Never"
 collapse_simple_statement = "Always"
 
 [sort_requires]

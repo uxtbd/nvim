@@ -2,8 +2,8 @@ return {
 	"romus204/tree-sitter-manager.nvim",
 	lazy = false,
 	dependencies = {}, -- tree-sitter CLI must be installed system-wide
-	config = function()
-		require("tree-sitter-manager").setup({
+	config = function ()
+		require ("tree-sitter-manager").setup ({
 			ensure_installed = {
 				"c",
 				"cpp",
@@ -34,8 +34,8 @@ return {
 			auto_install = true, -- if enabled, install missing parsers when editing a new file
 			highlight = true, -- treesitter highlighting is enabled by default
 			languages = {}, -- override or add new parser sources
-			parser_dir = vim.fn.stdpath("data") .. "/site/parser",
-			query_dir = vim.fn.stdpath("data") .. "/site/queries",
+			parser_dir = vim.fn.stdpath ("data") .. "/site/parser",
+			query_dir = vim.fn.stdpath ("data") .. "/site/queries",
 		})
 	end,
 }
