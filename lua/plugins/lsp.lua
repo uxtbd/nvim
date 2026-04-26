@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		"neovim/nvim-lspconfig",
+		"saghen/blink.lib",
 		{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
 	},
 	build = "cargo build --release",
