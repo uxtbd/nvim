@@ -71,9 +71,6 @@ require ("lazy").setup ({
 		-- only generate markdown helptags for plugins that don't have docs
 		skip_if_doc_exists = true,
 	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "teide" } },
 })
-vim.cmd ([[colorscheme teide]])
+
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
